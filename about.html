@@ -1,31 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About • WEILGLASS</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <header>
-        <h1>About the Artist</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header>
 
-    <section class="about">
-        <h2>[Artist Name]</h2>
-        <p>[Write a short bio here. For example:]</p>
-        <p>“I am a self-taught glass blower specializing in custom hand-crafted pieces, including bowls, pendants, pipes, marbles, and functional art. My work blends traditional techniques with modern designs.”</p>
-    </section>
+<header>
+  <div class="header-inner">
+    <div class="logo-wrap">
+      <div class="logo-circle">
+        <img src="images/logo.jpg" alt="Weilglass Logo">
+      </div>
+      <div class="site-title">
+        <h1>WEILGLASS</h1>
+        <span>Glass blower • Seattle, WA</span>
+      </div>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
 
-    <footer>
-        <p>© 2024 [Artist Name]</p>
-    </footer>
+<main class="page">
+  <h2 class="page-title">About Jacob</h2>
+  <p class="page-subtitle">Skulls • science • molten glass</p>
+
+  <div class="card">
+    <p class="tagline">Glass blower currently stationed in Seattle, WA.</p>
+    <p>
+      Jacob Weil is the artist behind WEILGLASS — known for heady, skull-heavy designs
+      that look like they were pulled straight out of a neon toxic lab.
+    </p>
+    <p>
+      Every piece is hand-blown and one of one. Jacob blends technical function with
+      color-shifting palettes, UV-active accents, and a heavy sci-fi / lab aesthetic.
+    </p>
+    <p>
+      To see the newest drops and in-progress shots straight from the torch,
+      check out <strong>@weilglass</strong> on Instagram.
+    </p>
+  </div>
+</main>
+
+<footer>
+  © <span id="year"></span> WEILGLASS.
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>

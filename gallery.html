@@ -1,33 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weilglass Gallery • Live from Instagram</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <header>
-        <h1>Gallery</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header>
 
-    <section class="gallery">
-        <!-- Replace with your actual images -->
-        <img src="images/piece1.jpg" alt="Glass Art 1">
-        <img src="images/piece2.jpg" alt="Glass Art 2">
-        <img src="images/piece3.jpg" alt="Glass Art 3">
-        <img src="images/piece4.jpg" alt="Glass Art 4">
-    </section>
+<header>
+  <div class="header-inner">
+    <div class="logo-wrap">
+      <div class="logo-circle">
+        <img src="images/logo.jpg" alt="Weilglass Logo">
+      </div>
+      <div class="site-title">
+        <h1>WEILGLASS</h1>
+        <span>Gallery • pulled from @weilglass</span>
+      </div>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
 
-    <footer>
-        <p>© 2024 [Artist Name]</p>
-    </footer>
+<main class="page">
+  <h2 class="page-title">Gallery</h2>
+  <p class="page-subtitle">@weilglass • latest posts</p>
+
+  <div class="insta-wrapper card">
+    <p class="insta-note">
+      This gallery updates whenever Jacob posts on Instagram. Tap any piece to view it directly on IG.
+    </p>
+
+    <!-- 
+      INSTAGRAM EMBED WIDGET
+      =======================
+      1. Go to a free service like SnapWidget, LightWidget, or SociableKit.
+      2. Create a grid widget for @weilglass.
+      3. Copy their HTML embed code.
+      4. Replace the <iframe> below with that embed.
+    -->
+
+    <!-- Placeholder iframe – replace "about:blank" with your widget URL -->
+    <iframe
+      class="insta-frame"
+      src="about:blank"
+      title="Instagram Gallery"
+      loading="lazy">
+    </iframe>
+
+    <!-- Optional: static backup images if you want later
+    <div class="gallery-grid">
+      <img src="images/piece1.jpg" alt="Glass piece 1">
+      <img src="images/piece2.jpg" alt="Glass piece 2">
+      <img src="images/piece3.jpg" alt="Glass piece 3">
+    </div>
+    -->
+
+  </div>
+</main>
+
+<footer>
+  © <span id="year"></span> WEILGLASS • All rights reserved.
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>

@@ -393,3 +393,25 @@ footer::after {
   100% { transform: translateY(4px); opacity: 0.8; }
 }
 
+/* Skull watermark behind footer */
+footer .skull-mark {
+  position: absolute;
+  right: 20px;
+  bottom: 5px;
+  width: 28px;
+  height: 28px;
+  opacity: 0.22;
+  pointer-events: none;
+  background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Skull-icon.svg/1024px-Skull-icon.svg.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(0 0 10px #00ff88);
+}
+
+footer {
+  background: radial-gradient(circle at center,
+      rgba(0,255,150,0.08),
+      rgba(0,0,0,1));
+}
+
+

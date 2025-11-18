@@ -429,14 +429,39 @@ footer .skull-mark {
 ============================ */
 
 .product-card {
-  overflow: hidden; 
+  overflow: hidden;
   border-radius: 20px;
+  padding: 0; /* remove padding so image touches edges */
+  background: rgba(0,0,0,0.7);
+  border: 1px solid rgba(0,255,180,0.3);
+  box-shadow: 0 0 22px rgba(0,255,160,0.35);
 }
 
 .product-card img.product-img {
   width: 100%;
-  height: 260px;       /* Adjust height here */
-  object-fit: cover;   /* Crops neatly without stretching */
-  border-radius: 18px 18px 0 0;
+  height: 260px;
+  object-fit: cover;   /* prevents stretching */
   display: block;
+  border-radius: 20px 20px 0 0;
+}
+
+.product-info {
+  padding: 16px 18px;
+}
+
+.product-info h4 {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.product-info .product-category {
+  font-size: 11px;
+  opacity: 0.75;
+  margin-bottom: 6px;
+}
+
+.product-info .product-price {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 12px;
 }

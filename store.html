@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Store • WEILGLASS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo-wrap">
+      <div class="logo-circle">
+        <img src="images/logo.jpg" alt="Weilglass Logo">
+      </div>
+      <div class="site-title">
+        <h1>WEILGLASS</h1>
+        <span>Store • build your order</span>
+      </div>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="store.html">Store</a>
+      <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page">
+  <h2 class="page-title">Store</h2>
+  <p class="page-subtitle">Choose a category and build your cart</p>
+
+  <!-- You can edit names / prices later -->
+  <section class="store-section">
+    <h3>Skull Pendants</h3>
+    <div class="store-grid">
+      <div class="product-card">
+        <h4>Standard Skull Pendant</h4>
+        <p class="product-category">Category: Skull Pendants</p>
+        <p class="product-price">$120</p>
+        <button
+          class="btn btn-add"
+          data-id="pendant-standard"
+          data-name="Standard Skull Pendant"
+          data-price="120"
+          data-category="Skull Pendants"
+          onclick="addToCartFromButton(this)">
+          Add to Cart
+        </button>
+      </div>
+
+      <div class="product-card">
+        <h4>UV Reactive Skull Pendant</h4>
+        <p class="product-category">Category: Skull Pendants</p>
+        <p class="product-price">$160</p>
+        <button
+          class="btn btn-add"
+          data-id="pendant-uv"
+          data-name="UV Reactive Skull Pendant"
+          data-price="160"
+          data-category="Skull Pendants"
+          onclick="addToCartFromButton(this)">
+          Add to Cart
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="store-section">
+    <h3>Functionals</h3>
+    <div class="store-grid">
+      <div class="product-card">
+        <h4>Toxic Lab Rig</h4>
+        <p class="product-category">Category: Functionals</p>
+        <p class="product-price">$420</p>
+        <button
+          class="btn btn-add"
+          data-id="rig-toxic-lab"
+          data-name="Toxic Lab Rig"
+          data-price="420"
+          data-category="Functionals"
+          onclick="addToCartFromButton(this)">
+          Add to Cart
+        </button>
+      </div>
+
+      <div class="product-card">
+        <h4>Mini Skull Tube</h4>
+        <p class="product-category">Category: Functionals</p>
+        <p class="product-price">$260</p>
+        <button
+          class="btn btn-add"
+          data-id="tube-mini-skull"
+          data-name="Mini Skull Tube"
+          data-price="260"
+          data-category="Functionals"
+          onclick="addToCartFromButton(this)">
+          Add to Cart
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="store-section">
+    <h3>One-of-One / Collector Pieces</h3>
+    <div class="store-grid">
+      <div class="product-card">
+        <h4>One-of-One Feature Piece</h4>
+        <p class="product-category">Category: One-of-One</p>
+        <p class="product-price">$800</p>
+        <button
+          class="btn btn-add"
+          data-id="ooo-feature"
+          data-name="One-of-One Feature Piece"
+          data-price="800"
+          data-category="One-of-One"
+          onclick="addToCartFromButton(this)">
+          Add to Cart
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="store-section">
+    <h3>Custom Work Deposit</h3>
+    <div class="store-grid">
+      <div class="product-card">
+        <h4>Custom Piece Deposit</h4>
+        <p class="product-category">Category: Custom</p>
+        <p class="product-price">$150</p>
+        <p style="font-size: 12px; opacity: 0.8;">
+          Non-refundable deposit to lock in a custom slot. Remaining balance due when finished.
+        </p>
+        <button
+          class="btn btn-add"
+          data-id="custom-deposit"
+          data-name="Custom Piece Deposit"
+          data-price="150"
+          data-category="Custom"
+          onclick="addToCartFromButton(this)">
+          Add to Cart
+        </button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  © <span id="year"></span> WEILGLASS.
+  <div class="skull-mark"></div>
+</footer>
+
+<script src="cart.js"></script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

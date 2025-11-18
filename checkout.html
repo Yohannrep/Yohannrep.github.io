@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout • WEILGLASS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo-wrap">
+      <div class="logo-circle">
+        <img src="images/logo.jpg" alt="Weilglass Logo">
+      </div>
+      <div class="site-title">
+        <h1>WEILGLASS</h1>
+        <span>Checkout & Shipping</span>
+      </div>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="store.html">Store</a>
+      <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page">
+  <h2 class="page-title">Checkout</h2>
+  <p class="page-subtitle">Payment + shipping details</p>
+
+  <!-- ORDER SUMMARY -->
+  <section class="card" id="checkout-summary">
+    <!-- JS will render order summary + total here -->
+  </section>
+
+  <!-- PAYMENT OPTIONS -->
+  <section class="card" style="margin-top: 24px;">
+    <h3>Payment Options</h3>
+    <p style="font-size: 14px; opacity: 0.85; margin-bottom: 16px;">
+      Choose one of the payment options below. After payment, send a screenshot and your shipping info to confirm your order.
+    </p>
+
+    <div class="pay-buttons">
+      <!-- Replace VENMO_USERNAME / CASHAPP_TAG / PAYPAL_ME_LINK with real info later -->
+      <a class="pay-btn pay-venmo" href="https://venmo.com/VENMO_USERNAME" target="_blank">
+        Pay with Venmo
+      </a>
+      <a class="pay-btn pay-cashapp" href="https://cash.app/$CASHAPP_TAG" target="_blank">
+        Pay with Cash App
+      </a>
+      <a class="pay-btn pay-paypal" href="https://paypal.me/PAYPAL_ME_LINK" target="_blank">
+        Pay with PayPal
+      </a>
+    </div>
+  </section>
+
+  <!-- SHIPPING INFO -->
+  <section class="card" style="margin-top: 24px;">
+    <h3>Shipping Information</h3>
+    <p style="font-size: 14px; line-height: 1.6; opacity: 0.9;">
+      After you pay, please send a message to <strong>@weilglass</strong> on Instagram (or your preferred contact method)
+      with:
+    </p>
+    <ul style="text-align: left; font-size: 14px; margin: 12px 0 0 18px; line-height: 1.6;">
+      <li>Full name</li>
+      <li>Shipping address (including apartment / unit number)</li>
+      <li>Email or phone number for tracking updates</li>
+      <li>Screenshot of your payment</li>
+      <li>The items you ordered (or just say “Cart total $X from the site”)</li>
+    </ul>
+    <p style="font-size: 14px; line-height: 1.6; margin-top: 12px; opacity: 0.9;">
+      Most pieces ship via USPS Priority Mail, packed securely and padded. Tracking will be provided once your order ships.
+      Insurance or signature confirmation can be added on request before finalizing shipping.
+    </p>
+  </section>
+
+  <div class="cart-actions">
+    <a href="cart.html" class="btn">Back to Cart</a>
+    <button class="btn" onclick="clearCartAfterCheckout()">Clear Cart</button>
+  </div>
+</main>
+
+<footer>
+  © <span id="year"></span> WEILGLASS.
+  <div class="skull-mark"></div>
+</footer>
+
+<script src="cart.js"></script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

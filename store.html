@@ -19,6 +19,7 @@
         <span>Store • build your order</span>
       </div>
     </div>
+
     <nav>
       <a href="index.html">Home</a>
       <a href="gallery.html">Gallery</a>
@@ -34,119 +35,168 @@
   <h2 class="page-title">Store</h2>
   <p class="page-subtitle">Choose a category and build your cart</p>
 
-  <!-- You can edit names / prices later -->
-  <section class="store-section">
-    <h3>Skull Pendants</h3>
-    <div class="store-grid">
-      <div class="product-card">
-        <h4>Standard Skull Pendant</h4>
-        <p class="product-category">Category: Skull Pendants</p>
-        <p class="product-price">$120</p>
-        <button
-          class="btn btn-add"
-          data-id="pendant-standard"
-          data-name="Standard Skull Pendant"
-          data-price="120"
-          data-category="Skull Pendants"
-          onclick="addToCartFromButton(this)">
-          Add to Cart
-        </button>
-      </div>
 
-      <div class="product-card">
-        <h4>UV Reactive Skull Pendant</h4>
-        <p class="product-category">Category: Skull Pendants</p>
-        <p class="product-price">$160</p>
-        <button
-          class="btn btn-add"
-          data-id="pendant-uv"
-          data-name="UV Reactive Skull Pendant"
-          data-price="160"
-          data-category="Skull Pendants"
-          onclick="addToCartFromButton(this)">
-          Add to Cart
-        </button>
-      </div>
+
+<!-- =============================
+     CATEGORY: SKULL PENDANTS
+============================= -->
+<section class="store-section">
+  <h3>Skull Pendants</h3>
+
+  <div class="store-grid">
+
+    <!-- Example product (text-only for now): -->
+    <div class="product-card">
+      <h4>Standard Skull Pendant</h4>
+      <p class="product-category">Category: Skull Pendants</p>
+      <p class="product-price">$120</p>
+
+      <button
+        class="btn btn-add"
+        data-id="pendant-standard"
+        data-name="Standard Skull Pendant"
+        data-price="120"
+        data-category="Skull Pendants"
+        onclick="addToCartFromButton(this)">
+        Add to Cart
+      </button>
     </div>
-  </section>
 
-  <section class="store-section">
-    <h3>Functionals</h3>
-    <div class="store-grid">
-      <div class="product-card">
-        <h4>Toxic Lab Rig</h4>
-        <p class="product-category">Category: Functionals</p>
-        <p class="product-price">$420</p>
-        <button
-          class="btn btn-add"
-          data-id="rig-toxic-lab"
-          data-name="Toxic Lab Rig"
-          data-price="420"
-          data-category="Functionals"
-          onclick="addToCartFromButton(this)">
-          Add to Cart
-        </button>
-      </div>
+    <div class="product-card">
+      <h4>UV Reactive Skull Pendant</h4>
+      <p class="product-category">Category: Skull Pendants</p>
+      <p class="product-price">$160</p>
 
-      <div class="product-card">
-        <h4>Mini Skull Tube</h4>
-        <p class="product-category">Category: Functionals</p>
-        <p class="product-price">$260</p>
-        <button
-          class="btn btn-add"
-          data-id="tube-mini-skull"
-          data-name="Mini Skull Tube"
-          data-price="260"
-          data-category="Functionals"
-          onclick="addToCartFromButton(this)">
-          Add to Cart
-        </button>
-      </div>
+      <button
+        class="btn btn-add"
+        data-id="pendant-uv"
+        data-name="UV Reactive Skull Pendant"
+        data-price="160"
+        data-category="Skull Pendants"
+        onclick="addToCartFromButton(this)">
+        Add to Cart
+      </button>
     </div>
-  </section>
 
-  <section class="store-section">
-    <h3>One-of-One / Collector Pieces</h3>
-    <div class="store-grid">
-      <div class="product-card">
-        <h4>One-of-One Feature Piece</h4>
-        <p class="product-category">Category: One-of-One</p>
-        <p class="product-price">$800</p>
-        <button
-          class="btn btn-add"
-          data-id="ooo-feature"
-          data-name="One-of-One Feature Piece"
-          data-price="800"
-          data-category="One-of-One"
-          onclick="addToCartFromButton(this)">
-          Add to Cart
-        </button>
-      </div>
-    </div>
-  </section>
+  </div>
+</section>
 
-  <section class="store-section">
-    <h3>Custom Work Deposit</h3>
-    <div class="store-grid">
-      <div class="product-card">
-        <h4>Custom Piece Deposit</h4>
-        <p class="product-category">Category: Custom</p>
-        <p class="product-price">$150</p>
-        <p style="font-size: 12px; opacity: 0.8;">
-          Non-refundable deposit to lock in a custom slot. Remaining balance due when finished.
-        </p>
-        <button
-          class="btn btn-add"
-          data-id="custom-deposit"
-          data-name="Custom Piece Deposit"
-          data-price="150"
-          data-category="Custom"
-          onclick="addToCartFromButton(this)">
-          Add to Cart
-        </button>
-      </div>
+
+
+
+
+<!-- =============================
+     CATEGORY: FUNCTIONALS
+============================= -->
+<section class="store-section">
+  <h3>Functionals</h3>
+
+  <div class="store-grid">
+
+    <!-- REAL PRODUCT with IMAGE -->
+    <div class="product-card">
+      <img src="images/products-pendant1.jpg" class="product-img" alt="Toxic Skull Pendant">
+
+      <h4>Toxic Skull Pendant</h4>
+      <p class="product-category">Category: Functionals</p>
+      <p class="product-price">$150</p>
+
+      <button
+        class="btn btn-add"
+        data-id="pendant1"
+        data-name="Toxic Skull Pendant"
+        data-price="150"
+        data-category="Functionals"
+        data-image="images/products-pendant1.jpg"
+        onclick="addToCartFromButton(this)">
+        Add to Cart
+      </button>
     </div>
-  </section>
+
+
+    <!-- Placeholder text-only piece -->
+    <div class="product-card">
+      <h4>Toxic Lab Rig</h4>
+      <p class="product-category">Category: Functionals</p>
+      <p class="product-price">$420</p>
+
+      <button
+        class="btn btn-add"
+        data-id="rig-toxic-lab"
+        data-name="Toxic Lab Rig"
+        data-price="420"
+        data-category="Functionals"
+        onclick="addToCartFromButton(this)">
+        Add to Cart
+      </button>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+<!-- =============================
+     CATEGORY: ONE-OF-ONE
+============================= -->
+<section class="store-section">
+  <h3>One-of-One / Collector Pieces</h3>
+
+  <div class="store-grid">
+    <div class="product-card">
+      <h4>One-of-One Feature Piece</h4>
+      <p class="product-category">Category: One-of-One</p>
+      <p class="product-price">$800</p>
+
+      <button
+        class="btn btn-add"
+        data-id="ooo-feature"
+        data-name="One-of-One Feature Piece"
+        data-price="800"
+        data-category="One-of-One"
+        onclick="addToCartFromButton(this)">
+        Add to Cart
+      </button>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+<!-- =============================
+     CATEGORY: CUSTOM DEPOSIT
+============================= -->
+<section class="store-section">
+  <h3>Custom Work Deposit</h3>
+
+  <div class="store-grid">
+    <div class="product-card">
+      <h4>Custom Piece Deposit</h4>
+      <p class="product-category">Category: Custom</p>
+      <p class="product-price">$150</p>
+      <p style="font-size: 12px; opacity: 0.8;">
+        Non-refundable deposit to lock in a custom slot. Remaining balance due when finished.
+      </p>
+
+      <button
+        class="btn btn-add"
+        data-id="custom-deposit"
+        data-name="Custom Piece Deposit"
+        data-price="150"
+        data-category="Custom"
+        onclick="addToCartFromButton(this)">
+        Add to Cart
+      </button>
+    </div>
+  </div>
+</section>
+
+
 </main>
 
 <footer>
@@ -158,5 +208,6 @@
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 </script>
+
 </body>
 </html>

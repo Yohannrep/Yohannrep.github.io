@@ -86,23 +86,19 @@
     <div class="skull-mark"></div>
 </footer>
 
-<!-- ============================
-     PAYPAL LIVE SDK
-============================ -->
-
-<script src="https://www.paypal.com/sdk/js?client-id=AZXr4BH7u_eLIFeQMYDeUiuKX5IZfyidUZGAWbvTLg9WD7oMtKpFGHyFpAkUg6Eu8qPIDK4JbnF4pnw8&currency=USD"></script>
-
+<!-- PAYPAL LIVE SDK -->
+<script src="https://www.paypal.com/sdk/js?client-id=AZXr4BH7u_eLIFeQMYDeUiuKX5IZfyidUZGAWbvTLg9WD7oMtKpFGHyFpAkUg6Eu8qPIDK4JbnF4pnw8&currency=USD&disable-funding=paylater"></script>
 
 <script>
 // ===============================
-//  CART TOTAL IMPORT (future-ready)
+//  CART TOTAL
 // ===============================
 let cartTotal = localStorage.getItem("cartTotal");
-if (!cartTotal) cartTotal = "150.00"; // fallback demo price
+if (!cartTotal) cartTotal = "150.00";
 cartTotal = Number(cartTotal).toFixed(2);
 
 // ===============================
-//  Enable PayPal ONLY when form is filled
+//  ENABLE PAYPAL AFTER FORM FILLED
 // ===============================
 const formInputs = document.querySelectorAll("#shippingForm input");
 const paypalContainer = document.getElementById("paypal-button-container");
@@ -121,11 +117,14 @@ formInputs.forEach(i => {
     i.addEventListener("input", validateForm);
 });
 
+// ===============================
+//  PAYPAL BUTTONS (NO PAY LATER)
+//  + FIXED PAYPAL / CARD SWITCH BEHAVIOR
+// ===============================
 
-// ===============================
-//  PAYPAL LIVE CHECKOUT
-// ===============================
 paypal.Buttons({
+
+    fundingSource: paypal.FUNDING.PAYPAL, // default PayPal mode
 
     style: {
         color: 'blue',
@@ -134,7 +133,6 @@ paypal.Buttons({
         height: 40
     },
 
-    // Create Order
     createOrder: function(data, actions) {
         return actions.order.create({
             purchase_units: [{
@@ -144,7 +142,6 @@ paypal.Buttons({
         });
     },
 
-    // On Payment Approval
     onApprove: function(data, actions) {
         return actions.order.capture().then(function(details) {
 
@@ -161,7 +158,7 @@ paypal.Buttons({
 
             localStorage.setItem("shippingInfo", JSON.stringify(shippingData));
 
-            // Redirect to confirmation page
+            // Redirect to thank-you page
             window.location.href = "thankyou.html";
         });
     }
@@ -169,7 +166,3 @@ paypal.Buttons({
 }).render('#paypal-button-container');
 
 </script>
-
-
-</body>
-</html>

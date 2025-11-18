@@ -94,7 +94,9 @@
 //  CART TOTAL
 // ===============================
 let cartTotal = localStorage.getItem("cartTotal");
-if (!cartTotal) cartTotal = "150.00";
+if (!cartTotal || Number(cartTotal) <= 0) {
+    cartTotal = "0.00";
+}
 cartTotal = Number(cartTotal).toFixed(2);
 
 // ===============================

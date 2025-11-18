@@ -37,9 +37,10 @@
     <h2 class="page-title">Checkout</h2>
     <p class="page-subtitle">Enter shipping details and complete payment</p>
 
+    <!-- SHIPPING FORM -->
     <div class="card">
         <h3>Shipping Information</h3>
-        <p>Please enter your shipping details. PayPal button unlocks after this form is complete.</p>
+        <p>Please fill this out. PayPal unlocks once complete.</p>
 
         <form id="shippingForm" style="margin-top: 16px; display: grid; gap: 10px;">
             <input type="text" id="fullname" placeholder="Full Name" required>
@@ -53,30 +54,28 @@
 
     <br>
 
+    <!-- PAYMENT OPTIONS -->
     <div class="card">
         <h3>Payment</h3>
         <p>Select your payment method:</p>
 
         <div class="pay-buttons" style="margin-top: 14px;">
+            <a class="pay-btn pay-venmo" href="https://venmo.com/u/YOURNAME" target="_blank">
+                Pay with Venmo
+            </a>
 
-            <a class="pay-btn pay-venmo"
-               href="https://venmo.com/"
-               target="_blank">Pay with Venmo</a>
-
-            <a class="pay-btn pay-cashapp"
-               href="https://cash.app/$YOURTAG"
-               target="_blank">Pay with CashApp</a>
-
+            <a class="pay-btn pay-cashapp" href="https://cash.app/$YOURTAG" target="_blank">
+                Pay with CashApp
+            </a>
         </div>
 
         <br><br>
 
         <h3>PayPal Checkout</h3>
-        <p>The total will appear here from the cart system.</p>
+        <p>The total will appear here once the cart is built.</p>
 
-        <!-- PayPal Button Container -->
-        <div id="paypal-button-container" style="margin-top: 18px; opacity: 0.3; pointer-events: none;"></div>
-
+        <div id="paypal-button-container"
+             style="margin-top: 18px; opacity: 0.3; pointer-events: none;"></div>
     </div>
 </div>
 
@@ -86,48 +85,50 @@
     <div class="skull-mark"></div>
 </footer>
 
-<!-- PAYPAL LIVE SDK -->
+<!-- PAYPAL LIVE SDK (NO PAY LATER) -->
 <script src="https://www.paypal.com/sdk/js?client-id=AZXr4BH7u_eLIFeQMYDeUiuKX5IZfyidUZGAWbvTLg9WD7oMtKpFGHyFpAkUg6Eu8qPIDK4JbnF4pnw8&currency=USD&disable-funding=paylater"></script>
 
 <script>
 // ===============================
-//  CART TOTAL
+//  GET CART TOTAL
 // ===============================
 let cartTotal = localStorage.getItem("cartTotal");
+
 if (!cartTotal || Number(cartTotal) <= 0) {
     cartTotal = "0.00";
 }
-cartTotal = Number(cartTotal).toFixed(2);
+
+// Disable PayPal when cart is empty
+if (cartTotal === "0.00") {
+    document.getElementById("paypal-button-container").innerHTML =
+        "<p style='color:#ff6060; font-weight:700;'>Your cart is empty. Add items before checking out.</p>";
+
+    document.getElementById("paypal-button-container").style.opacity = "0.4";
+    document.getElementById("paypal-button-container").style.pointerEvents = "none";
+}
 
 // ===============================
-//  ENABLE PAYPAL AFTER FORM FILLED
+//  ENABLE PAYPAL WHEN FORM COMPLETE
 // ===============================
 const formInputs = document.querySelectorAll("#shippingForm input");
 const paypalContainer = document.getElementById("paypal-button-container");
 
 function validateForm() {
-    let filled = true;
-    formInputs.forEach(i => { if (!i.value.trim()) filled = false; });
+    let filled = Array.from(formInputs).every(i => i.value.trim() !== "");
 
-    if (filled) {
+    if (filled && cartTotal !== "0.00") {
         paypalContainer.style.opacity = "1";
         paypalContainer.style.pointerEvents = "all";
     }
 }
 
-formInputs.forEach(i => {
-    i.addEventListener("input", validateForm);
-});
+formInputs.forEach(i => i.addEventListener("input", validateForm));
+
 
 // ===============================
-//  PAYPAL BUTTONS (NO PAY LATER)
-//  + FIXED PAYPAL / CARD SWITCH BEHAVIOR
+//  PAYPAL SMART BUTTONS (LIVE)
 // ===============================
-
 paypal.Buttons({
-
-    fundingSource: paypal.FUNDING.PAYPAL, // default PayPal mode
-
     style: {
         color: 'blue',
         shape: 'pill',
@@ -135,6 +136,7 @@ paypal.Buttons({
         height: 40
     },
 
+    // Create order with real amount
     createOrder: function(data, actions) {
         return actions.order.create({
             purchase_units: [{
@@ -144,23 +146,24 @@ paypal.Buttons({
         });
     },
 
+    // Payment approved
     onApprove: function(data, actions) {
         return actions.order.capture().then(function(details) {
 
             // Save shipping info
             const shippingData = {
-                name: document.getElementById("fullname").value,
-                address: document.getElementById("address").value,
-                city: document.getElementById("city").value,
-                state: document.getElementById("state").value,
-                zip: document.getElementById("zip").value,
-                email: document.getElementById("email").value,
+                name: fullname.value,
+                address: address.value,
+                city: city.value,
+                state: state.value,
+                zip: zip.value,
+                email: email.value,
                 paypalName: details.payer.name.given_name
             };
 
             localStorage.setItem("shippingInfo", JSON.stringify(shippingData));
 
-            // Redirect to thank-you page
+            // Redirect
             window.location.href = "thankyou.html";
         });
     }
@@ -168,3 +171,7 @@ paypal.Buttons({
 }).render('#paypal-button-container');
 
 </script>
+
+
+</body>
+</html>

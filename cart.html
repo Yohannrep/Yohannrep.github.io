@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart • WEILGLASS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo-wrap">
+      <div class="logo-circle">
+        <img src="images/logo.jpg" alt="Weilglass Logo">
+      </div>
+      <div class="site-title">
+        <h1>WEILGLASS</h1>
+        <span>Your Cart</span>
+      </div>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="store.html">Store</a>
+      <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page">
+  <h2 class="page-title">Cart</h2>
+  <p class="page-subtitle">Review and adjust before checkout</p>
+
+  <div id="cart-items" class="card">
+    <!-- JS will render cart items here -->
+  </div>
+
+  <div class="cart-actions">
+    <a href="store.html" class="btn">Back to Store</a>
+    <a href="checkout.html" class="btn btn-primary">Proceed to Checkout</a>
+  </div>
+</main>
+
+<footer>
+  © <span id="year"></span> WEILGLASS.
+  <div class="skull-mark"></div>
+</footer>
+
+<script src="cart.js"></script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

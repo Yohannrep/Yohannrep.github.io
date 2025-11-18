@@ -1,99 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Checkout • WEILGLASS</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout – WEILGLASS</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <header>
-  <div class="header-inner">
-    <div class="logo-wrap">
-      <div class="logo-circle">
-        <img src="images/logo.jpg" alt="Weilglass Logo">
-      </div>
-      <div class="site-title">
-        <h1>WEILGLASS</h1>
-        <span>Checkout & Shipping</span>
-      </div>
+    <div class="header-inner">
+        <div class="logo-wrap">
+            <div class="logo-circle">
+                <img src="images/logo.jpg" alt="Weilglass Logo">
+            </div>
+            <div class="site-title">
+                <h1>WEILGLASS</h1>
+                <span>HAND-BLOWN SKULLS • TOXIC LAB ENERGY</span>
+            </div>
+        </div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="store.html">Store</a>
+            <a href="cart.html">Cart (0)</a>
+        </nav>
     </div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="store.html">Store</a>
-      <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </div>
 </header>
 
-<main class="page">
-  <h2 class="page-title">Checkout</h2>
-  <p class="page-subtitle">Payment + shipping details</p>
 
-  <!-- ORDER SUMMARY -->
-  <section class="card" id="checkout-summary">
-    <!-- JS will render order summary + total here -->
-  </section>
+<div class="page">
+    <h2 class="page-title">Checkout</h2>
+    <p class="page-subtitle">Enter shipping details and complete payment</p>
 
-  <!-- PAYMENT OPTIONS -->
-  <section class="card" style="margin-top: 24px;">
-    <h3>Payment Options</h3>
-    <p style="font-size: 14px; opacity: 0.85; margin-bottom: 16px;">
-      Choose one of the payment options below. After payment, send a screenshot and your shipping info to confirm your order.
-    </p>
+    <div class="card">
+        <h3>Shipping Information</h3>
+        <p>Please enter your shipping details. PayPal button unlocks after this form is complete.</p>
 
-    <div class="pay-buttons">
-      <!-- Replace VENMO_USERNAME / CASHAPP_TAG / PAYPAL_ME_LINK with real info later -->
-      <a class="pay-btn pay-venmo" href="https://venmo.com/VENMO_USERNAME" target="_blank">
-        Pay with Venmo
-      </a>
-      <a class="pay-btn pay-cashapp" href="https://cash.app/$CASHAPP_TAG" target="_blank">
-        Pay with Cash App
-      </a>
-      <a class="pay-btn pay-paypal" href="https://paypal.me/PAYPAL_ME_LINK" target="_blank">
-        Pay with PayPal
-      </a>
+        <form id="shippingForm" style="margin-top: 16px; display: grid; gap: 10px;">
+            <input type="text" id="fullname" placeholder="Full Name" required>
+            <input type="text" id="address" placeholder="Street Address" required>
+            <input type="text" id="city" placeholder="City" required>
+            <input type="text" id="state" placeholder="State" required>
+            <input type="text" id="zip" placeholder="ZIP Code" required>
+            <input type="email" id="email" placeholder="Email for Tracking" required>
+        </form>
     </div>
-  </section>
 
-  <!-- SHIPPING INFO -->
-  <section class="card" style="margin-top: 24px;">
-    <h3>Shipping Information</h3>
-    <p style="font-size: 14px; line-height: 1.6; opacity: 0.9;">
-      After you pay, please send a message to <strong>@weilglass</strong> on Instagram (or your preferred contact method)
-      with:
-    </p>
-    <ul style="text-align: left; font-size: 14px; margin: 12px 0 0 18px; line-height: 1.6;">
-      <li>Full name</li>
-      <li>Shipping address (including apartment / unit number)</li>
-      <li>Email or phone number for tracking updates</li>
-      <li>Screenshot of your payment</li>
-      <li>The items you ordered (or just say “Cart total $X from the site”)</li>
-    </ul>
-    <p style="font-size: 14px; line-height: 1.6; margin-top: 12px; opacity: 0.9;">
-      Most pieces ship via USPS Priority Mail, packed securely and padded. Tracking will be provided once your order ships.
-      Insurance or signature confirmation can be added on request before finalizing shipping.
-    </p>
-  </section>
+    <br>
 
-  <div class="cart-actions">
-    <a href="cart.html" class="btn">Back to Cart</a>
-    <button class="btn" onclick="clearCartAfterCheckout()">Clear Cart</button>
-  </div>
-</main>
+    <div class="card">
+        <h3>Payment</h3>
+        <p>Select your payment method:</p>
+
+        <div class="pay-buttons" style="margin-top: 14px;">
+
+            <a class="pay-btn pay-venmo"
+               href="https://venmo.com/"
+               target="_blank">Pay with Venmo</a>
+
+            <a class="pay-btn pay-cashapp"
+               href="https://cash.app/$YOURTAG"
+               target="_blank">Pay with CashApp</a>
+
+        </div>
+
+        <br><br>
+
+        <h3>PayPal Checkout</h3>
+        <p>The total will appear here from the cart system.</p>
+
+        <!-- PayPal Button Container -->
+        <div id="paypal-button-container" style="margin-top: 18px; opacity: 0.3; pointer-events: none;"></div>
+
+    </div>
+</div>
+
 
 <footer>
-  © <span id="year"></span> WEILGLASS.
-  <div class="skull-mark"></div>
+    © 2025 WEILGLASS.
+    <div class="skull-mark"></div>
 </footer>
 
-<script src="cart.js"></script>
+<!-- ============================
+     PAYPAL LIVE SDK
+============================ -->
+
+<script src="https://www.paypal.com/sdk/js?client-id=AZXr4BH7u_eLIFeQMYDeUiuKX5IZfyidUZGAWbvTLg9WD7oMtKpFGHyFpAkUg6Eu8qPIDK4JbnF4pnw8&currency=USD"></script>
+
+
 <script>
-  document.getElementById('year').textContent = new Date().getFullYear();
+// ===============================
+//  CART TOTAL IMPORT (future-ready)
+// ===============================
+let cartTotal = localStorage.getItem("cartTotal");
+if (!cartTotal) cartTotal = "150.00"; // fallback demo price
+cartTotal = Number(cartTotal).toFixed(2);
+
+// ===============================
+//  Enable PayPal ONLY when form is filled
+// ===============================
+const formInputs = document.querySelectorAll("#shippingForm input");
+const paypalContainer = document.getElementById("paypal-button-container");
+
+function validateForm() {
+    let filled = true;
+    formInputs.forEach(i => { if (!i.value.trim()) filled = false; });
+
+    if (filled) {
+        paypalContainer.style.opacity = "1";
+        paypalContainer.style.pointerEvents = "all";
+    }
+}
+
+formInputs.forEach(i => {
+    i.addEventListener("input", validateForm);
+});
+
+
+// ===============================
+//  PAYPAL LIVE CHECKOUT
+// ===============================
+paypal.Buttons({
+
+    style: {
+        color: 'blue',
+        shape: 'pill',
+        label: 'pay',
+        height: 40
+    },
+
+    // Create Order
+    createOrder: function(data, actions) {
+        return actions.order.create({
+            purchase_units: [{
+                amount: { value: cartTotal },
+                description: "WEILGLASS Custom Glass Art"
+            }]
+        });
+    },
+
+    // On Payment Approval
+    onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+
+            // Save shipping info
+            const shippingData = {
+                name: document.getElementById("fullname").value,
+                address: document.getElementById("address").value,
+                city: document.getElementById("city").value,
+                state: document.getElementById("state").value,
+                zip: document.getElementById("zip").value,
+                email: document.getElementById("email").value,
+                paypalName: details.payer.name.given_name
+            };
+
+            localStorage.setItem("shippingInfo", JSON.stringify(shippingData));
+
+            // Redirect to confirmation page
+            window.location.href = "thankyou.html";
+        });
+    }
+
+}).render('#paypal-button-container');
+
 </script>
+
+
 </body>
 </html>

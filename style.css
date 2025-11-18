@@ -423,3 +423,20 @@ footer .skull-mark {
 .pay-venmo { background: #3d95ce; color: #fff; }
 .pay-cashapp { background: #00d64b; color: #fff; }
 .pay-paypal { background: linear-gradient(120deg,#003087,#009cde); color: #fff; }
+
+/* ============================
+   FIX PRODUCT IMAGE SIZING
+============================ */
+
+.product-card {
+  overflow: hidden; 
+  border-radius: 20px;
+}
+
+.product-card img.product-img {
+  width: 100%;
+  height: 260px;       /* Adjust height here */
+  object-fit: cover;   /* Crops neatly without stretching */
+  border-radius: 18px 18px 0 0;
+  display: block;
+}
